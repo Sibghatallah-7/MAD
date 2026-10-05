@@ -1,238 +1,272 @@
-Mobile Application Development — Major Project
-About the Project
-This repository contains my major project for the Mobile Application Development (MAD) course.
+📱 Mobile Application Development
+Major Project
+<p align="center"> <img src="https://img.shields.io/badge/Mobile%20Application%20Development-Major%20Project-6C63FF?style=for-the-badge" alt="MAD Major Project"> <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Project Status"> <img src="https://img.shields.io/badge/Academic%20Project-2EA44F?style=for-the-badge" alt="Academic Project"> </p> <p align="center"> A mobile application developed as part of my Mobile Application Development course. </p>
+📌 About
+This repository contains my Major Project for Mobile Application Development (MAD).
 
-The project is focused on developing a mobile application from the initial idea and planning stage to development, testing, and final implementation. It includes the source code, resources, documentation, and other files related to the project.
+The project covers the complete development process of a mobile application — starting from the initial idea and requirements, followed by design and development, and ending with testing, documentation, and the final implementation.
 
-The main purpose of this repository is to keep all the work related to the project in one place and to document the development process as the project grows.
+I will be using this repository to keep the project's source code, resources, documentation, screenshots, and development progress in one place.
 
-Project Goals
-The main goals of this project are to:
+Note: The project is currently under development, so some sections of this README will be updated as the application takes shape.
 
-Apply the concepts learned in Mobile Application Development.
+🎯 What I'm Building
+The main idea, purpose, and problem being addressed by the application will be explained here once the project requirements are finalized.
 
-Build a complete and functional mobile application.
+The application will be designed with a focus on:
 
-Create a simple and user-friendly interface.
+A simple and easy-to-use interface
 
-Practice writing and organizing application code.
+Practical functionality
 
-Work with data and other required services.
+Clean and organized code
 
-Test the application and fix issues during development.
+Reliable data handling
 
-Follow a proper development and documentation process.
+Good user experience
 
-Project Information
-The details of the application, including its purpose, target users, main problem, and proposed solution, will be added here as the project is developed.
+Proper testing and error handling
 
-The project may change during development based on requirements, testing, or improvements. This README will be updated whenever there are major changes.
+The final description will be updated as the project develops.
 
-Main Features
-The final features of the application will be listed here.
+✨ Features
+The features below represent the areas that will be covered by the application. The final list will be updated according to the actual implementation.
 
-Some features may include:
+Feature	Status
+User Interface	🔄 In Progress
+Navigation	🔄 In Progress
+Core Functionality	⏳ Planned
+Data Management	⏳ Planned
+Authentication	⏳ Planned
+Backend / API Integration	⏳ Planned
+Testing	⏳ Planned
+Final UI Improvements	⏳ Planned
 
-User interface and navigation
+🛠️ Technologies
+The technology stack will be finalized during development.
 
-User input and interaction
+Depending on the project requirements, this section will include the tools and technologies actually used, such as:
 
-Data storage and management
+<p align="center">
+Android Studio • Java / Kotlin • XML / Jetpack Compose
+Firebase • SQLite / Room • REST APIs • Git & GitHub
 
-User accounts or authentication
+</p>
+Technologies listed here will be updated to match the final project.
 
-Backend or database functionality
-
-API integration
-
-Notifications
-
-Search and filtering
-
-Other features required by the application
-
-Only the features that are actually implemented will be included in the final version of this section.
-
-Technologies
-The technologies used in the project will be listed here as development progresses.
-
-This may include:
-
-Programming language
-
-Mobile development framework
-
-UI technologies
-
-Database
-
-Backend services
-
-APIs
-
-Development tools
-
-Git and GitHub
-
-Other libraries or services used in the project
-
-Project Structure
-The project will be organized into different folders to keep the source code, resources, documentation, and other files easy to manage.
-
-A general structure may look like this:
+🧩 Project Structure
+The repository will be organized so that the source code, documentation, resources, and other project files are easy to find.
 
 MAD-Major-Project/
 │
-├── README.md
-├── app/
-├── screenshots/
-├── documentation/
-├── resources/
-├── tests/
-└── ...
+├── 📱 app/
+│   └── Application source code
+│
+├── 🖼️ screenshots/
+│   └── Application screenshots
+│
+├── 📚 documentation/
+│   └── Project documentation
+│
+├── 🧪 tests/
+│   └── Testing files and results
+│
+├── 📦 resources/
+│   └── Additional project resources
+│
+└── 📄 README.md
 
-The structure may change depending on the final requirements and technologies used.
+The structure may change as the project grows.
 
-User Interface
-The application's screens and interface will be added to this section as they are developed.
+🎨 User Interface
+The application interface will be designed with simplicity and usability in mind.
 
-Screenshots may include:
+Screenshots and previews will be added here once the main screens are ready.
 
-Main screen
+Preview
+<p align="center"> <i>Application screenshots will be added here during development.</i> </p>
+📸 Screenshots
+Once the application reaches a stable stage, screenshots of the major screens will be displayed here.
 
-Login or registration screen
+<p align="center">
+Screen	Preview
+Home	Coming soon
+Main Feature	Coming soon
+Profile	Coming soon
+Settings	Coming soon
 
-Dashboard
+</p>
+🔄 Development Process
+The project is being developed in stages rather than building everything at once.
 
-Profile
-
-Settings
-
-Other important screens
-
-Screenshots
-Screenshots of the application will be added here during development.
-
-Example:
-
-![Application Screenshot](screenshots/example.png)
-
-How to Run the Project
-The instructions for setting up and running the project will be added here once the development setup is finalized.
-
-In general, the process will include:
-
-Clone the repository.
-
-Open the project in the required development environment.
-
-Install or sync the required dependencies.
-
-Configure any required services.
-
-Build the project.
-
-Run it on a suitable device or emulator.
-
-Example:
-
-git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-
+Idea
+  ↓
+Requirements
+  ↓
+Planning
+  ↓
+UI / UX Design
+  ↓
+Development
+  ↓
+Data & Backend
+  ↓
 Testing
-Testing will be carried out throughout the development of the application.
+  ↓
+Bug Fixing
+  ↓
+Final Improvements
+  ↓
+Release
 
-This may include testing:
+This approach makes it easier to track progress and improve the application throughout development.
 
-Application functionality
+📈 Progress
+Current Stage
+🟠 Development in Progress
 
-User interface
+Roadmap
+ Repository setup
 
-Navigation
+ Initial README
 
-User input
+ Project requirements
 
-Database operations
-
-API communication
-
-Error handling
-
-Different devices and screen sizes
-
-Any important issues or improvements found during testing can also be documented here.
-
-Development Progress
-The project is being developed step by step.
-
- Planning and idea
-
- Requirements
+ Application planning
 
  UI/UX design
 
- Project setup
+ Initial application setup
 
- Development
+ Core functionality
 
- Database/backend
+ Data management
 
- Feature implementation
+ Backend/API integration
 
  Testing
 
  Bug fixing
 
- Final improvements
+ Performance improvements
+
+ Final UI polish
 
  Documentation
 
  Final release
 
-This list will be updated as the project progresses.
+The checklist will be updated as the project progresses.
 
-Documentation
-Important project documentation will be kept in this repository.
+🚀 Getting Started
+Setup instructions will be added once the project structure and technology stack are finalized.
+
+For now, the repository can be cloned using:
+
+git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
+
+The final setup guide will explain:
+
+Required software and tools
+
+Project dependencies
+
+Environment configuration
+
+Database/backend setup
+
+Running the application
+
+Testing the application
+
+🧪 Testing
+Testing will be carried out throughout the development process rather than only at the end.
+
+Areas that will be tested include:
+
+Application functionality
+
+Navigation
+
+User input
+
+Data handling
+
+UI responsiveness
+
+Error handling
+
+Database operations
+
+API communication
+
+Different screen sizes
+
+Overall application stability
+
+Testing results and important issues will be documented as the project progresses.
+
+📚 Documentation
+All important information related to the project will be maintained in this repository.
 
 This may include:
 
 Project requirements
 
-Design information
+System design
+
+UI/UX design
 
 Application architecture
 
-Database details
+Database design
 
-Testing information
+Testing documentation
 
 Screenshots
 
-User instructions
+User guide
 
-Other relevant documents
+Development notes
 
-Future Improvements
-Additional improvements and features will be added here as the project develops.
+🔮 Future Improvements
+The project may continue to evolve after the initial version.
 
-The project may be updated in the future based on testing, feedback, and new requirements.
+Future improvements could include:
 
-Academic Purpose
-This project is being developed as part of the Mobile Application Development (MAD) course.
+Additional features
 
-It is intended to provide practical experience in designing, developing, testing, and documenting a complete mobile application.
+Better performance
 
-Developer
-Name: Your Name
+Improved UI/UX
 
-Course: Mobile Application Development
+Additional security
 
-Project: Major Project
+More integrations
 
-GitHub: @YOUR-USERNAME
+Better accessibility
 
-License
-This project is created for educational and academic purposes.
+Support for additional devices
 
-Mobile Application Development — Major Project
+User feedback-based improvements
 
-This repository will be updated throughout the development of the project.
+The actual future improvements will depend on the final application and feedback received during testing.
+
+🎓 About This Project
+This project is being developed as part of my Mobile Application Development course.
+
+It is an opportunity to take the concepts learned in class and apply them to a complete real-world style application.
+
+More importantly, this repository represents the development journey — including the planning, mistakes, improvements, testing, and final result.
+
+👨‍💻 Developer
+Your Name
+
+Mobile Application Development
+Major Project
+
+<p align="left"> <a href="https://github.com/YOUR-USERNAME"> <img src="https://img.shields.io/badge/GitHub-YOUR--USERNAME-181717?style=flat-square&logo=github" alt="GitHub"> </a> </p>
+📄 License
+This project is developed for academic and educational purposes as part of the Mobile Application Development course.
+
+<p align="center"> <br> <strong>📱 Mobile Application Development</strong> <br> <sub>Designing • Developing • Testing • Learning</sub> <br><br> ⭐ <i>This repository will continue to evolve as the project develops.</i> </p>
