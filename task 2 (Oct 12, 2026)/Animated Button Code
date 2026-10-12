@@ -1,0 +1,53 @@
+import 'package:flutter/material.dart';
+
+class AnimatedCrossFadeWidget extends StatefulWidget {
+  const AnimatedCrossFadeWidget({super.key});
+
+  State<AnimatedCrossFadeWidget> createState() => AnimatedCrossFadeWidgetState();
+}
+
+class AnimatedCrossFadeWidgetState extends State<AnimatedCrossFadeWidget> {
+  bool _crossFadeStateShowFirst = true;
+
+  void _crossFade() {
+    setState(() {
+      _crossFadeStateShowFirst = !_crossFadeStateShowFirst;
+    });
+  }
+
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Stack(
+          alignment: Alignment.center,
+          children: <Widget>[
+            AnimatedCrossFade(
+              duration: const Duration(milliseconds: 500),
+              sizeCurve: Curves.bounceOut,
+              crossFadeState: _crossFadeStateShowFirst
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              firstChild: Container(
+                color: Colors.amber,
+                height: 100.0,
+                width: 100.0,
+              ),
+              secondChild: Container(
+                color: Colors.lime,
+                height: 300.0,
+                width: 300.0,
+              ),
+            ),
+            Positioned.fill(
+              child: FloatingActionButton(
+                onPressed: _crossFade,
+                child: const Text('Tap to\nFade', textAlign: TextAlign.center),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
