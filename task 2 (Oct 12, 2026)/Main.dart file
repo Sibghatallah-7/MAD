@@ -1,0 +1,286 @@
+export 'src/week_08_base.dart';
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'animated_container_widget.dart';
+import 'splash_screen.dart';
+import 'login_page.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Sibghatallah - Profile & Portfolio',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      home: const WelcomeSplashScreen(),
+    );
+  }
+}
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isExpanded = false;
+  bool _showWelcome = true;
+  double _fabScale = 1.0;
+
+  void _onPlusPressed() {
+    HapticFeedback.lightImpact();
+
+    setState(() {
+      _isExpanded = !_isExpanded;
+      _showWelcome = true;
+      _fabScale = 0.85;
+    });
+
+    Future.delayed(const Duration(milliseconds: 150), () {
+      if (mounted) {
+        setState(() {
+          _fabScale = 1.0;
+        });
+      }
+    });
+  }
+
+  void _handleLogout() {
+    HapticFeedback.lightImpact();
+    Navigator.of(context).pushReplacement(
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            const LoginPage(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          return FadeTransition(opacity: animation, child: child);
+        },
+        transitionDuration: const Duration(milliseconds: 600),
+      ),
+    );
+  }
+
+  void _showContactDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          title: const Text('Contact Details'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              Text('📱 Phone: 0333 1112233'),
+              SizedBox(height: 8),
+              Text('📧 Email: sibghatallah@example.com'),
+              SizedBox(height: 8),
+              Text('📍 Location: Pakistan'),
+            ],
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: const Text('Close'),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Sibghatallah - Profile'),
+        centerTitle: true,
+        elevation: 2,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Logout',
+            onPressed: _handleLogout,
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: Center(
+          child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                AnimatedSwitcher(
+                  duration: const Duration(milliseconds: 600),
+                  transitionBuilder: (Widget child, Animation<double> animation) {
+                    return FadeTransition(
+                      opacity: animation,
+                      child: SizeTransition(
+                        sizeFactor: animation,
+                        child: child,
+                      ),
+                    );
+                  },
+                  child: _showWelcome
+                      ? Container(
+                          key: const ValueKey('welcome_banner'),
+                          margin: const EdgeInsets.only(bottom: 24),
+                          padding: const EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                            color: Colors.deepPurple.shade50,
+                            borderRadius: BorderRadius.circular(16),
+                            border: Border.all(color: Colors.deepPurple.shade200),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.deepPurple.withValues(alpha: 0.1),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            children: [
+                              const Icon(Icons.verified_user, color: Colors.deepPurple, size: 28),
+                              const SizedBox(width: 12),
+                              Expanded(
+                                child: Text(
+                                  _isExpanded
+                                      ? 'Profile expanded! Explore portfolio details below.'
+                                      : 'Welcome back, Sibghatallah! Tap the plus button to animate.',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.deepPurple.shade900,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
+                      : const SizedBox.shrink(key: ValueKey('empty_banner')),
+                ),
+
+                Semantics(
+                  label: 'User profile picture, animates in size when interactive button is pressed',
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 600),
+                    curve: Curves.elasticOut,
+                    width: _isExpanded ? 160 : 110,
+                    height: _isExpanded ? 160 : 110,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.deepPurple, width: 3),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withValues(alpha: 0.2),
+                          blurRadius: _isExpanded ? 18 : 8,
+                          offset: const Offset(0, 6),
+                        ),
+                      ],
+                    ),
+                    child: CircleAvatar(
+                      radius: _isExpanded ? 80 : 55,
+                      backgroundImage: const AssetImage('assets/images/image.jpeg'),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+
+                const Text(
+                  'Sibghatallah',
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepPurple,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                const Text(
+                  'BS Software Engineering Student & Flutter Developer',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.grey,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                const Icon(
+                  Icons.person,
+                  size: 32,
+                  color: Colors.deepPurple,
+                ),
+                const SizedBox(height: 16),
+
+                Card(
+                  elevation: 2,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: const Text(
+                      'My name is Sibghatallah. I am a student of BS Software Engineering. '
+                      'I am interested in technology, programming, and software development. '
+                      'I am currently learning Flutter, building interactive cross-platform mobile apps with modern UI/UX and animations.',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 16,
+                        height: 1.4,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 24),
+
+                ElevatedButton.icon(
+                  onPressed: _showContactDialog,
+                  icon: const Icon(Icons.contact_mail),
+                  label: const Text('Contact Me'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 30),
+
+                const AnimatedContainerWidget(),
+                const SizedBox(height: 40),
+              ],
+            ),
+          ),
+        ),
+      ),
+      floatingActionButton: Semantics(
+        label: 'Interactive plus button to trigger animations',
+        child: AnimatedScale(
+          scale: _fabScale,
+          duration: const Duration(milliseconds: 150),
+          curve: Curves.easeInOut,
+          child: FloatingActionButton.extended(
+            onPressed: _onPlusPressed,
+            icon: const Icon(Icons.add),
+            label: const Text('Animate'),
+            backgroundColor: Colors.deepPurple,
+            foregroundColor: Colors.white,
+            elevation: 6,
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+    );
+  }
+}
